@@ -4,70 +4,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="https://webapi.amap.com/maps?v=1.4.15&key=b1bbce6bbc14be2a0408e1df0761f5f8"></script>
   <title>Document</title>
 </head>
 
 <body>
-  <div id="container" style="width:80vw;height: 80vh;"></div>
-  <button id="a">保存</button>
   <script>
-    function save(){
-      console.log(JSON.stringify(arr));
-    }
-    function randomNum(min, max) {
-      min = Math.ceil(min);
-      max = Math.floor(max);
-      return Math.floor(Math.random() * (max - min)) + min; //不含最大值，含最小值
-    }
-
-    let a = document.getElementById('a')
-    a.addEventListener('click',()=>{
-      console.log(JSON.stringify(arr));
-      console.log(arr.length);
-    })
-
-    let option = {
-      zoom: 15,
-      resizeEnable: true,
-      center: [113.331129, 23.123728]
-    }
-    const map = new AMap.Map('container', option);
-
-
-
-    map.add(113.331129, 23.123728)
-    let arr = []
-    map.on('click', function (e) {
-      let lng = e.lnglat.getLng()
-      let lat = e.lnglat.getLat()
-
-      arr.push({lng,lat})
-
-      let marker = new AMap.Marker({
-        position: new AMap.LngLat(lng, lat),
-        raiseOnDrag: true
-      });
-      map.add(marker);
-    });
-
-    // window.onload = function(){
-    //   for (let index = 0; index < 100; index++) {
-    //   let lng = randomNum(245341, 444125)
-    //   let lat = randomNum(47297, 106835)
-    //   let marker = new AMap.Marker({
-    //     position: new AMap.LngLat(lng, lat),
-    //     raiseOnDrag: true
-    //   });
-    //   // console.log(marker);
-    //   map.add(marker);
-    // }
-    // }
-
-
-
-
-
   </script>
 </body>
 
